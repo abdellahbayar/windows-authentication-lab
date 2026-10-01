@@ -32,10 +32,6 @@ These were controlled lab tests. A failure followed by a success does not, by it
 
 [Read the full analysis](Windows-Authentication-Log-Analysis-Abdellah-Bayar.pdf)
 
-### Projects
-
-[Windows Authentication Lab](https://github.com/abdellahbayar/windows-authentication-lab)
-
 ## Evidence
 
 ### Incorrect password
