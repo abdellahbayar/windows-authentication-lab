@@ -35,3 +35,20 @@ These were controlled lab tests. A failure followed by a success does not, by it
 ### Projects
 
 [Windows Authentication Lab](https://github.com/abdellahbayar/windows-authentication-lab)
+
+## Evidence
+
+### Incorrect password
+Event 4625 — LabUser — SubStatus `0xC000006A`.
+
+![Incorrect password](01-accesso-fallito.png)
+
+### Successful authentication
+Event 4624 — LabUser — 13 seconds after the failed attempt.
+
+![Successful authentication](02-accesso-riuscito.png)
+
+### Unknown username
+Event 4625 — UtenteInesistente — SubStatus `0xC0000064`.
+
+![Unknown username](03-utente-inesistente.png)
