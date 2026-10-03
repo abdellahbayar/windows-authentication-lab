@@ -28,13 +28,13 @@ I generated controlled authentication attempts using `runas`, then inspected the
 
 These were controlled lab tests. A failure followed by a success does not, by itself, establish a compromise.
 
-## Report
+## Documentation
 
-[Read the full analysis](Windows-Authentication-Log-Analysis-Abdellah-Bayar.pdf)
+- [Analysis report](Windows-Authentication-Log-Analysis-Abdellah-Bayar.pdf)  
+  Investigation workflow, event interpretation and conclusions.
 
-## Reproduce the lab
-
-[Step-by-step reproduction guide](Windows-Authentication-Lab-Reproduction-Guide.pdf)
+- [Lab reproduction guide](Windows-Authentication-Lab-Reproduction-Guide.pdf)  
+  Step-by-step setup, authentication tests and verification with screenshots.
 
 ## Evidence
 
