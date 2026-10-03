@@ -21,7 +21,7 @@ I generated controlled authentication attempts using `runas`, then inspected the
 
 ## Findings
 
-- `Subject` identifies the requesting account; the target account identifies who attempted to authenticate.
+- `Subject` identifies the requesting account; the target account identifies the account being authenticated.
 - SubStatus `0xC000006A` indicates an incorrect password; `0xC0000064` indicates an unknown username.
 - Logon Type `2` and loopback address `::1` are consistent with the local tests.
 - LabUser’s failed attempt was followed by a successful authentication approximately 13 seconds later.
@@ -32,19 +32,27 @@ These were controlled lab tests. A failure followed by a success does not, by it
 
 [Read the full analysis](Windows-Authentication-Log-Analysis-Abdellah-Bayar.pdf)
 
+## Reproduce the lab
+
+[Step-by-step reproduction guide](Windows-Authentication-Lab-Reproduction-Guide.pdf)
+
 ## Evidence
 
-### Incorrect password
-Event 4625 — LabUser — SubStatus `0xC000006A`.
+Key fields recorded in the three selected events:
 
-![Incorrect password](01-accesso-fallito.png)
+| Field | Incorrect password | Successful authentication | Unknown username |
+|---|---|---|---|
+| Event ID | `4625` | `4624` | `4625` |
+| Target account | `LabUser` | `LabUser` | `UtenteInesistente` |
+| Logon Type | `2` | `2` | `2` |
+| Source address | `::1` | `::1` | `::1` |
+| Status | `0xC000006D` | Not applicable | `0xC000006D` |
+| SubStatus | `0xC000006A` | Not applicable | `0xC0000064` |
 
-### Successful authentication
-Event 4624 — LabUser — 13 seconds after the failed attempt.
+### Screenshots
 
-![Successful authentication](02-accesso-riuscito.png)
+Open the annotated screenshots to verify the recorded fields:
 
-### Unknown username
-Event 4625 — UtenteInesistente — SubStatus `0xC0000064`.
-
-![Unknown username](03-utente-inesistente.png)
+- [Incorrect password — Event 4625](01-accesso-fallito.png)
+- [Successful authentication — Event 4624](02-accesso-riuscito.png)
+- [Unknown username — Event 4625](03-utente-inesistente.png)
